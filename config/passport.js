@@ -14,13 +14,16 @@ passport.use(
       user
         .findOne({ email })
         .then((user) => {
-          // console.log(user);
-          if (!user && passwordMatch(password, user.password)) {
+          if (!user) {
+            return done(null, false, {
+              errors: { message: "User does not exits" },
+            });
+          }
+          if (user && !passwordMatch(password, user.password)) {
             return done(null, false, {
               errors: { "email or password": "is invalid" },
             });
           }
-          return done(null, user);
         })
         .catch(done);
     }

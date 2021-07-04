@@ -1,6 +1,6 @@
-var username = "your Username";
-var secrete = "secrete key";
-var collection = "collection name";
+var username = "test12";
+var secrete = "0Tq6mCXOaQtV7q79";
+var collection = "demo-test";
 const uri =
   "mongodb+srv://" +
   username +
